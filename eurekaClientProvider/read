@@ -1,0 +1,35 @@
+创建eureka服务提供者
+    一、创建项目
+    二、添加eurekaserver依赖
+        <!--添加eureka依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+    三、添加maven依赖管理器
+        <!-- 添加maven依赖管理器-->
+        <dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-dependencies</artifactId>
+                    <version>${spring-cloud.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+            </dependencies>
+        </dependencyManagement>
+    四、指定springcloud版本号
+        <!--添加springcloud版本-->
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+    五、添加激活eureka的注解（在**application中添加）
+        //激活eureka服务提供者
+        @EnableEurekaClient
+    六、添加application.properties文件
+        #指定服务名称，这个名称将在服务消费时被调用，名字取任意
+        spring.application.name=eurekaClientProvider
+        #指定eureka的访问地址
+        eureka.client.service-url.defaultZone=http://localhost:9100/eureka
+        #设置端口
+        server.port=8081
+    七、创建服务提供者（创建类提供服务到eureka注册中心）

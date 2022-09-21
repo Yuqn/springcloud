@@ -1,0 +1,53 @@
+方法一、（没有注册中心）创建服务提供者、服务消费者
+服务提供者：
+    一、创建项目（选择web模块）
+    二、写控制器
+
+服务消费者：
+    一、创建项目（选择web模块）
+    二、写控制器
+    三、连接消费者
+        // 连接消息提供者，写在方法内
+        // RestTemplate 是一个基于http协议的工具对象，可以利用这个对象以http的方式请求指定web服务器中。
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> result = restTemplate.getForEntity("http://localhost:8080/text",String.class);
+        System.out.println("result结果:"+result.getBody());
+方法二、创建eureka注册中心（用于被消费者发现）
+    一、创建项目
+    二、添加eurekaserver依赖
+        <!--   添加eureka依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+    三、添加maven依赖管理器
+        <!--    添加maven依赖管理器-->
+        <dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-dependencies</artifactId>
+                    <version>${spring-cloud.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+            </dependencies>
+        </dependencyManagement>
+    四、指定springcloud版本号
+        <!--    添加springcloud版本-->
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+    五、添加激活eureka的注解（在**application中添加）
+        //激活eureka
+        @EnableEurekaServer
+    六、添加application.properties文件
+        #设置内置tomcat端口
+        server.port=9100
+        #设置该服务注册中心的hostname
+        eureka.instance.hostname=localhost
+        #取消将自身注册到注册中心
+        eureka.client.register-with-eureka=false
+        #取消检索其他服务
+        eureka.client.fetch-registry=false
+        #指定服务注册中心的位置
+        eureka.client.service-url.defaultZone=http://${eureka.instance.hostname}:${server.port}/eureka
+    七、浏览器访问 http://localhost:9100/ 进入注册中心

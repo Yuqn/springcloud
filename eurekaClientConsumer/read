@@ -1,0 +1,41 @@
+创建eureka服务提供者
+    一、创建项目
+    二、添加eurekaserver依赖
+        <!--添加eureka依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+    三、添加maven依赖管理器
+        <!-- 添加maven依赖管理器-->
+        <dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-dependencies</artifactId>
+                    <version>${spring-cloud.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+            </dependencies>
+        </dependencyManagement>
+    四、指定springcloud版本号
+        <!--添加springcloud版本-->
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+    五、添加激活eureka的注解（在**application中添加）
+        //激活eureka服务提供者
+        @EnableEurekaClient
+    六、添加application.properties文件
+        #指定服务名称，这个名称将在服务消费时被调用，名字取任意
+        spring.application.name=eurekaClientProvider
+        #指定eureka的访问地址(到注册中心发现服务)
+        eureka.client.service-url.defaultZone=http://localhost:9100/eureka
+        #设置端口
+        server.port=8081
+    七、创建服务消费者（创建类提供服务到eureka注册中心）
+        在类中添加 url地址可以是 http://服务提供者名称/test，不区分大小写
+        ResponseEntity<String> result = restTemplate.getForEntity("http://localhost:8081/test",String.class);
+        ResponseEntity<String> result = restTemplate.getForEntity("http://eurekaClientProvider/go",String.class);
+    八、添加@LoadBalanced注解
+        在使用RestTemplate处添加@LoadBalanced
+        注：注解能够标记当前ResTempate使用负载均衡访问服务提供者，如果不加则不能获取服务
