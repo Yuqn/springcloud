@@ -35,4 +35,11 @@ public class TestController {
         user.setUserName(user.getUserName()+"new");
         return user;
     }
+    // ===================================================
+    // post 方法
+    @RequestMapping("/postForParams")
+    public User postUserForParams(User user){
+        user.setUserName(user.getUserName()+"new");
+        return user;
+    }
 }
