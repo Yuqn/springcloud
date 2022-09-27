@@ -1,0 +1,53 @@
+熔断器需要添加依赖
+    <!-- 添加熔断器依赖-->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        <version>2.2.5.RELEASE</version>
+    </dependency>
+--------------------------异常熔断---------------------------------
+熔断器一般加载消费者，使用如下：
+一、在消费者的入口文件添加注解
+    //激活Hystrix熔断机制
+    @EnableCircuitBreaker
+二、在消费者方法中添加注解，启动熔断机制
+    /**
+     * @HystrixCommand注解的作用是启动熔断机制，如果调用远程服务出现异常没响应，就会自动熔断
+     * 属性 fallbackMethod 用于指定一个本地方法，用于熔断后返回信息，需要自定义
+     */
+    @HystrixCommand(fallbackMethod = "error")
+三、写回调方法（熔断后，fallbackMethod 回调的方法）
+    public String error(){
+        return "熔断了";
+    }
+--------------------------超时熔断---------------------------------
+熔断器一般加载消费者，使用如下：
+一、在消费者的入口文件添加注解
+    //激活Hystrix熔断机制
+    @EnableCircuitBreaker
+二、在消费者方法中添加注解，启动熔断机制
+    /**
+     * @HystrixCommand 注解的作用是启动熔断机制，如果调用远程服务出现异常没响应，就会自动熔断
+     * 属性
+     *      fallbackMethod：用于指定一个本地方法，用于熔断后返回信息，需要自定义
+     *      commandProperties：设置熔断器的一些属性
+     *          execution.isolation.thread.timeoutInMilliseconds：熔断器超时时间
+     */
+    @HystrixCommand(fallbackMethod = "error",commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "1500")
+    })
+--------------------------异常熔断---------------------------------
+注意：异常熔断，可以跳过某些异常熔断（因为有一些异常并不需要熔断）
+    /**
+     * @HystrixCommand 注解的作用是启动熔断机制，如果调用远程服务出现异常没响应，就会自动熔断
+     * 属性
+     *      fallbackMethod：用于指定一个本地方法，用于熔断后返回信息，需要自定义
+     *      commandProperties：设置熔断器的一些属性
+     *          execution.isolation.thread.timeoutInMilliseconds：熔断器超时时间
+     *      ignoreExceptions： 指定跳过某些异常
+     *          HttpServerErrorException.InternalServerError.class表示忽略服务提供者层的异常
+     *          Exception.class表示忽略自身的异常
+     */
+    @HystrixCommand(fallbackMethod = "error",commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "1500")
+    },ignoreExceptions = {Exception.class})

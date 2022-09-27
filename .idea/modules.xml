@@ -3,7 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/eurekaClientConsumer/eurekaClientConsumer.iml" filepath="$PROJECT_DIR$/eurekaClientConsumer/eurekaClientConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaClientFeginConsumer/eurekaClientFeginConsumer.iml" filepath="$PROJECT_DIR$/eurekaClientFeginConsumer/eurekaClientFeginConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaClientFeginProvider/eurekaClientFeginProvider.iml" filepath="$PROJECT_DIR$/eurekaClientFeginProvider/eurekaClientFeginProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaClientHystrixConsumer/eurekaClientHystrixConsumer.iml" filepath="$PROJECT_DIR$/eurekaClientHystrixConsumer/eurekaClientHystrixConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaHystrixServer/eurekaClientHystrixProvider/eurekaClientHystrixProvider.iml" filepath="$PROJECT_DIR$/eurekaHystrixServer/eurekaClientHystrixProvider/eurekaClientHystrixProvider.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaClientProvider/eurekaClientProvider.iml" filepath="$PROJECT_DIR$/eurekaClientProvider/eurekaClientProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaFeginServer/eurekaFeginServer.iml" filepath="$PROJECT_DIR$/eurekaFeginServer/eurekaFeginServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaHystrixServer/eurekaHystrixServer.iml" filepath="$PROJECT_DIR$/eurekaHystrixServer/eurekaHystrixServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaServer/eurekaServer.iml" filepath="$PROJECT_DIR$/eurekaServer/eurekaServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/springCloud.iml" filepath="$PROJECT_DIR$/springCloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/springCloud_consumers_02/springCloud_consumers_02.iml" filepath="$PROJECT_DIR$/springCloud_consumers_02/springCloud_consumers_02.iml" />

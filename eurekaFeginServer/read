@@ -1,0 +1,18 @@
+Fegin是负载均衡和熔断的整合，是一种新的风格
+创建注册中心
+一、添加依赖
+    创建时选择web、eureka server依赖
+二、添加激活eureka的注解（在**application中添加）
+    //激活eureka
+    @EnableEurekaServer
+三、添加application.properties文件
+    #设置内置tomcat端口
+    server.port=9100
+    #设置该服务注册中心的hostname
+    eureka.instance.hostname=localhost
+    #取消将自身注册到注册中心
+    eureka.client.register-with-eureka=false
+    #取消检索其他服务
+    eureka.client.fetch-registry=false
+    #指定服务注册中心的位置
+    eureka.client.service-url.defaultZone=http://${eureka.instance.hostname}:${server.port}/eureka

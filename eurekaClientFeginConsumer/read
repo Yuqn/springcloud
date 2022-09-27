@@ -1,0 +1,48 @@
+创建服务消费者
+一、添加依赖
+    web、eureka client
+二、添加 hystrix 依赖、Feign依赖
+<!-- 添加 Feign 依赖-->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+    <!-- 添加 hystrix 依赖-->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        <version>2.2.5.RELEASE</version>
+    </dependency>
+五、添加激活eureka的注解（在**application中添加）
+    //激活eureka服务提供者
+    @EnableEurekaClient
+    // 激活声明式服务消费者Feign的支持
+    @EnableFeignClients
+六、添加application.properties文件
+    #指定服务名称，这个名称将在服务消费时被调用，名字取任意
+    spring.application.name=eurekaClientProvider
+    #指定eureka的访问地址(到注册中心发现服务)
+    eureka.client.service-url.defaultZone=http://localhost:9100/eureka
+    #设置端口
+    server.port=8080
+    #配置Feign对Hystrix支持，开启后，就能使用熔断
+    feign.circuitbreaker.enabled=true
+七、创建接口
+    创建接口，执行流程如下：服务消费者访问接口方法 --> Spring通过接口代理到对应服务提供者 --> 访问到服务提供者，并且返回数据
+    /**
+    * @FeignClient 注解用于标记当前接口是一个Feign的声明式服务接口
+     * Spring 会为这个接口生成动态代理对象
+     * 属性
+     *  name：表示服务提供者某个服务的名称
+     *  fallback：熔断后回调事件类，也可以使用fallbackFactory（1、需要配置feign.hystrix.enabled=true；2、MyFallback是自定义类，继承接口后实现方法）
+     *  fallback 和 fallbackFactory 的区别，fallback是实现接口方法，接口有方法，就需要在自定义容器类中添加；fallbackFactory继承FallbackFactory
+    */
+    @FeignClient(name="eurekaClientProvider",fallback = MyFallback.class)
+    public interface TestService {
+        /**
+        * 定义方法要使用RequestMapping标记这个方法用于访问提供者
+        * 其中RequestMapping的参数 /test 应该与当前接口所标记的服务名称某个路径相同
+        */
+        @RequestMapping("/test")
+        String test();
+    }

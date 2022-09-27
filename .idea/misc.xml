@@ -8,10 +8,17 @@
         <option value="$PROJECT_DIR$/eurekaServer/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaClientProvider/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaClientConsumer/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaHystrixServer/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaHystrixServer/eurekaClientHystrixProvider/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaClientHystrixProvider/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaClientHystrixConsumer/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaFeginServer/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaClientFeginProvider/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaClientFeginConsumer/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ProjectType">

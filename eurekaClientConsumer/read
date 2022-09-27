@@ -27,11 +27,11 @@
         @EnableEurekaClient
     六、添加application.properties文件
         #指定服务名称，这个名称将在服务消费时被调用，名字取任意
-        spring.application.name=eurekaClientProvider
+        spring.application.name=eurekaClientConsumer
         #指定eureka的访问地址(到注册中心发现服务)
         eureka.client.service-url.defaultZone=http://localhost:9100/eureka
         #设置端口
-        server.port=8081
+        server.port=8080
     七、创建服务消费者（创建类提供服务到eureka注册中心）
         在类中添加 url地址可以是 http://服务提供者名称/test，不区分大小写
         ResponseEntity<String> result = restTemplate.getForEntity("http://localhost:8081/test",String.class);

@@ -15,7 +15,7 @@
     <description>eurekaServer</description>
     <properties>
         <java.version>1.8</java.version>
-<!--        添加springcloud版本-->
+        <!-- 添加springcloud版本-->
         <spring-cloud.version>2021.0.3</spring-cloud.version>
     </properties>
     <dependencies>
