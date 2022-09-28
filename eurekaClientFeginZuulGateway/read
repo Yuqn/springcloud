@@ -1,0 +1,30 @@
+网关：用于拦截请求，并且跳转到指定的服务下的某个请求
+注：springboot版本超过2.3，不能用zuul网关了
+一、创建项目选择依赖
+    eureka client
+二、添加依赖
+    <!-- 添加zuul依赖-->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        <version>2.2.10.RELEASE</version>
+    </dependency>
+三、启动文件添加注解
+    //激活 EurekaClient
+    @EnableEurekaClient
+    //激活 Zuul 的支持
+    @EnableZuulProxy
+四、添加配置文件
+    #指定服务名称，这个名称将在服务消费时被调用，名字取任意
+    spring.application.name=eurekaClientFeginZuulGateway
+    #指定eureka的访问地址(到注册中心发现服务)
+    eureka.client.service-url.defaultZone=http://localhost:9100/eureka
+    #设置端口
+    server.port=9000
+    #配置Feign对Hystrix支持，开启后，就能使用熔断
+    feign.circuitbreaker.enabled=true
+    #拦截 /api-zuul 开头的请求，并且跳转到 zuul.routes.api-zuul.serviceId 服务下对应的请求，例如：请求为 /api-zuul/test，则会被拦截，并且请求到 eurekaClientConsumer/test
+    zuul.routes.api-zuul.path=/api-zuul/**
+    #配置网关拦截后请求路径，其中 api-zuul 是自定义的，但是每一组上下必须一致，用于区分
+    zuul.routes.api-zuul.serviceId = eurekaClientConsumer
+五、

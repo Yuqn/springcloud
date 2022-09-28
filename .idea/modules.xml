@@ -5,10 +5,14 @@
       <module fileurl="file://$PROJECT_DIR$/eurekaClientConsumer/eurekaClientConsumer.iml" filepath="$PROJECT_DIR$/eurekaClientConsumer/eurekaClientConsumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaClientFeginConsumer/eurekaClientFeginConsumer.iml" filepath="$PROJECT_DIR$/eurekaClientFeginConsumer/eurekaClientFeginConsumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaClientFeginProvider/eurekaClientFeginProvider.iml" filepath="$PROJECT_DIR$/eurekaClientFeginProvider/eurekaClientFeginProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaClientFeginZuulConsumer/eurekaClientFeginZuulConsumer.iml" filepath="$PROJECT_DIR$/eurekaClientFeginZuulConsumer/eurekaClientFeginZuulConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaClientFeginZuulGateway/eurekaClientFeginZuulGateway.iml" filepath="$PROJECT_DIR$/eurekaClientFeginZuulGateway/eurekaClientFeginZuulGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaClientFeginZuulProvider/eurekaClientFeginZuulProvider.iml" filepath="$PROJECT_DIR$/eurekaClientFeginZuulProvider/eurekaClientFeginZuulProvider.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaClientHystrixConsumer/eurekaClientHystrixConsumer.iml" filepath="$PROJECT_DIR$/eurekaClientHystrixConsumer/eurekaClientHystrixConsumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaHystrixServer/eurekaClientHystrixProvider/eurekaClientHystrixProvider.iml" filepath="$PROJECT_DIR$/eurekaHystrixServer/eurekaClientHystrixProvider/eurekaClientHystrixProvider.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaClientProvider/eurekaClientProvider.iml" filepath="$PROJECT_DIR$/eurekaClientProvider/eurekaClientProvider.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaFeginServer/eurekaFeginServer.iml" filepath="$PROJECT_DIR$/eurekaFeginServer/eurekaFeginServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaFeginZuulServer/eurekaFeginZuulServer.iml" filepath="$PROJECT_DIR$/eurekaFeginZuulServer/eurekaFeginZuulServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaHystrixServer/eurekaHystrixServer.iml" filepath="$PROJECT_DIR$/eurekaHystrixServer/eurekaHystrixServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eurekaServer/eurekaServer.iml" filepath="$PROJECT_DIR$/eurekaServer/eurekaServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/springCloud.iml" filepath="$PROJECT_DIR$/springCloud.iml" />

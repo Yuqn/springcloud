@@ -13,8 +13,12 @@
         <option value="$PROJECT_DIR$/eurekaClientHystrixProvider/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaClientHystrixConsumer/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaFeginServer/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaFeginZuulServer/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaClientFeginZuulProvider/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaClientFeginProvider/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaClientFeginZuulConsumer/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaClientFeginConsumer/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaClientFeginZuulGateway/pom.xml" />
       </list>
     </option>
   </component>
